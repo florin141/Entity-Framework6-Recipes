@@ -11,6 +11,7 @@ namespace Ef.Api
     {
         protected void Application_Start()
         {
+            AutoMapperConfig.Initialize();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AutofacApiConfig.RegisterDependencies();
         }

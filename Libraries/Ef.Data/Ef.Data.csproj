@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C208E74C-EC32-47D5-BDD2-72C4F1BB93C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ef.Data</RootNamespace>
+    <AssemblyName>Ef.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EfObjectContext.cs" />
+    <Compile Include="EfRepository.cs" />
+    <Compile Include="Mapping\Ch02_Fundamentals\Recipe03_ManyToManyWithoutPayload\AlbumMap.cs" />
+    <Compile Include="Mapping\Ch02_Fundamentals\Recipe03_ManyToManyWithoutPayload\ArtistMap.cs" />
+    <Compile Include="Mapping\Chapter.cs" />
+    <Compile Include="Mapping\EfEntityTypeConfiguration.cs" />
+    <Compile Include="Mapping\Ch02_Fundamentals\Recipe01_SimpleModel\PersonMap.cs" />
+    <Compile Include="Mapping\Ch03_Querying\Recipe01_Asynchronously\AssociateMap.cs" />
+    <Compile Include="Mapping\Ch03_Querying\Recipe01_Asynchronously\AssociateSalaryMap.cs" />
+    <Compile Include="Migrations\201711041325330_Recipe0201_SimpleModel.cs" />
+    <Compile Include="Migrations\201711041325330_Recipe0201_SimpleModel.Designer.cs">
+      <DependentUpon>201711041325330_Recipe0201_SimpleModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711041327097_Recipe0301_Asynchronously.cs" />
+    <Compile Include="Migrations\201711041327097_Recipe0301_Asynchronously.Designer.cs">
+      <DependentUpon>201711041327097_Recipe0301_Asynchronously.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711041642001_Recipe0203_ManyToManyWithoutPayload.cs" />
+    <Compile Include="Migrations\201711041642001_Recipe0203_ManyToManyWithoutPayload.Designer.cs">
+      <DependentUpon>201711041642001_Recipe0203_ManyToManyWithoutPayload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Initializers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ef.Core\Ef.Core.csproj">
+      <Project>{81feb580-ac02-4ae9-9e63-9b0d3f69c169}</Project>
+      <Name>Ef.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ef.Domain\Ef.Domain.csproj">
+      <Project>{73abc759-ac33-4a87-95ca-0a4f66480a94}</Project>
+      <Name>Ef.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711041325330_Recipe0201_SimpleModel.resx">
+      <DependentUpon>201711041325330_Recipe0201_SimpleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041327097_Recipe0301_Asynchronously.resx">
+      <DependentUpon>201711041327097_Recipe0301_Asynchronously.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041642001_Recipe0203_ManyToManyWithoutPayload.resx">
+      <DependentUpon>201711041642001_Recipe0203_ManyToManyWithoutPayload.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
